@@ -1,3 +1,4 @@
+import hashlib
 import json
 import random
 from pathlib import Path
@@ -7,7 +8,8 @@ LANG_QUESTION_TEMPLATES = {'en': 'Under the law of {jurisdiction}, what is the c
 JURISDICTION_NAMES = {'en': {'US': 'the United States', 'DE': 'Germany', 'FR': 'France', 'CN': 'China', 'UK': 'the United Kingdom', 'HK': 'Hong Kong'}, 'de': {'US': 'den USA', 'DE': 'Deutschland', 'FR': 'Frankreich', 'CN': 'China', 'UK': 'dem Vereinigten Königreich', 'HK': 'Hongkong'}, 'fr': {'US': 'les États-Unis', 'DE': "l'Allemagne", 'FR': 'la France', 'CN': 'la Chine', 'UK': 'le Royaume-Uni', 'HK': 'Hong Kong'}, 'zh': {'US': '美国', 'DE': '德国', 'FR': '法国', 'CN': '中国', 'UK': '英国', 'HK': '香港'}}
 
 def stable_seed(pair_id: str, direction: str) -> int:
-    return abs(hash(f'{pair_id}::{direction}')) % 2 ** 31
+    digest = hashlib.sha256(f'{pair_id}::{direction}'.encode('utf-8')).digest()
+    return int.from_bytes(digest[:4], 'big') % 2 ** 31
 
 def build_question(concept: dict, jurisdiction: str, lang: str) -> str:
     juris_name = JURISDICTION_NAMES.get(lang, JURISDICTION_NAMES['en']).get(jurisdiction, jurisdiction)
