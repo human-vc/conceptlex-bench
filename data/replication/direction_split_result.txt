@@ -1,0 +1,6 @@
+model                       FSR asked-other  FSR asked-US  asymmetry             95% CI
+mistral-7b-instruct-v0.3              0.548         0.548      0.000    [-0.258, 0.258]
+saullm-7b-instruct                    0.806         0.290      0.516     [0.290, 0.710]
+
+confirmatory contrast: asymmetry(saullm-7b-instruct) - asymmetry(mistral-7b-instruct-v0.3) = 0.516
+A prior-driven account predicts a large positive value here; retrieval deference predicts approximately zero.

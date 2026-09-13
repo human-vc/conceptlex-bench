@@ -1,0 +1,22 @@
+620 labelled responses over 31 concept pairs
+
+=== broad frame-shift rate ===
+  topic-mismatch
+    before    0.524  [0.435, 0.613]
+    anchored  0.185  [0.105, 0.266]
+    reduction 0.339  [0.242, 0.444]
+  plausibility-matched
+    before    0.605  [0.508, 0.702]
+    anchored  0.177  [0.097, 0.274]
+    reduction 0.427  [0.306, 0.540]
+
+=== strict frame-shift rate ===
+  topic-mismatch
+    before    0.339  [0.266, 0.403]
+    anchored  0.016  [-0.016, 0.048]
+    reduction 0.323  [0.250, 0.387]
+  plausibility-matched
+    before    0.379  [0.306, 0.460]
+    anchored  0.016  [-0.016, 0.048]
+    reduction 0.363  [0.282, 0.444]
+
